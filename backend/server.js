@@ -5,13 +5,12 @@ import cors from "cors";
 import authRouter from './routes/authRouter.js';
 import teamRouter from './routes/teamRouter.js';
 import userRouter from './routes/userRouter.js';
+import projectRouter from './routes/projectRouter.js';
+import taskRouter from "./routes/taskRouter.js";
 
 dotenv.config();
 
-  // --- Add this console.log ---
-  console.log('DEBUG: MONGO_URI loaded:', process.env.MONGODB_URI ? 'Loaded' : 'Not Loaded');
-  console.log('DEBUG: JWT_SECRET loaded in app.js:', process.env.JWT_SECRET ? 'Loaded' : 'Not Loaded', process.env.JWT_SECRET ? 'Length:' + process.env.JWT_SECRET.length : '');
-  // ---------------------------
+
 
 const app = express();
 
@@ -40,6 +39,8 @@ app.get("/",(req,res)=>{
 app.use('/api/auth', authRouter);
 app.use('/api/teams', teamRouter);
 app.use('/api/users', userRouter);
+app.use('/api/projects', projectRouter);
+app.use('/api/tasks', taskRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
