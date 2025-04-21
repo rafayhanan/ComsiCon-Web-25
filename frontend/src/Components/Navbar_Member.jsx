@@ -5,7 +5,7 @@ import { Switch } from '@/components/ui/switch';
 // Import MessageSquare icon for the chat link
 import { Sun, Moon, MessageSquare } from 'lucide-react';
 
-function Navbar() {
+function Navbar_Member() {
   const navigate = useNavigate();
   const [isDark, setIsDark] = useState(false);
 
@@ -16,6 +16,10 @@ function Navbar() {
       document.documentElement.classList.remove('dark');
     }
   }, [isDark]);
+
+  const handleToggleDarkMode= () => {
+    setIsDark(!isDark);
+  };
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md text-gray-700 dark:text-gray-200 sticky top-0 z-50"> {/* Added sticky positioning */}
@@ -79,4 +83,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar_Member;

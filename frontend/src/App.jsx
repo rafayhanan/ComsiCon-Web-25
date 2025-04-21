@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar_Member from './Components/Navbar_Member';
+import Navbar_All from './Components/Navbar_All';
 import HomePage from './components/HomePage';
 import LoginSignup from './components/LoginSignup';
 import TeamMemberDashboardRefactored from './components/MemberDashboard';
@@ -12,7 +13,7 @@ export default function App() {
 
   return (
     <Router>
-      <Navbar /> {/* Persistent across all pages */}
+      <Navbar_All /> {/* Persistent across all pages */}
       <main>
         <Routes>
           {/* Public Routes */}
