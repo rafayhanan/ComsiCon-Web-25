@@ -17,10 +17,6 @@ function Navbar() {
     }
   }, [isDark]);
 
-  const handleToggleDarkMode = () => {
-    setIsDark(!isDark);
-  };
-
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md text-gray-700 dark:text-gray-200 sticky top-0 z-50"> {/* Added sticky positioning */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
