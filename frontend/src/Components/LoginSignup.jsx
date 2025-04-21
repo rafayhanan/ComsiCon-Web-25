@@ -145,7 +145,7 @@ function LoginSignup() {
   
   return (
     <div className={`min-h-screen flex items-center justify-center ${
-      isDark ? 'bg-gradient-to-br from-gray-900 to-gray-800' : 'bg-gradient-to-br from-blue-50 to-indigo-100'
+      isDark ? 'bg-gradient-to-br from-gray-900 to-gray-800' : 'bg-blue-50'
     } p-4`}>
       <div className={`w-full max-w-md ${
         isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'
