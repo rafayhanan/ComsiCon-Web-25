@@ -100,7 +100,7 @@ function LoginSignup() {
         
         <div className="mt-8">
           <button 
-            className="w-full py-3 px-4 rounded-lg font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md"
+            className="w-full py-3 px-4 rounded-lg font-medium text-white bg-blue-900 hover:bg-blue-700 transition-colors shadow-md"
           >
             {action === 'Sign Up' ? 'Create Account' : 'Sign In'}
           </button>
