@@ -1,10 +1,24 @@
+import React, { useState, useEffect } from 'react';
+import LoginSignup from './LoginSignup'
+import { useNavigate } from 'react-router-dom';
 function Navbar() {
+  const navigate = useNavigate();
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
     return (
       <nav className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <span className="text-xl font-bold text-blue-600">TeamUP</span>
+              <span className="text-xl font-bold text-blue-600">Team<i className='text-blue-600/50 dark:text-sky-400/50'>UP</i></span>
             </div>
             
             <ul className="flex items-center space-x-1 md:space-x-4">
@@ -64,13 +78,23 @@ function Navbar() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                   </svg>
-                  <span className="hidden md:block">Register</span>
+                  <button className="hidden md:block" onClick={() => navigate('/login')}>Register</button>
+                  
                 </a>
+              </li>
+
+              <li className='group'>
+              <label className="inline-flex items-center cursor-pointer">
+                <input type="checkbox" value="" className="sr-only peer" checked={isDark} onChange={() => setIsDark(!isDark)}/>
+                <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+                <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">{isDark? 'Dark Mode':'Light Mode'}</span>
+              </label>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+      
     );
   }
   
