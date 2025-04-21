@@ -3,8 +3,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 // Removed Switch import
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-// Removed Sun, Moon imports. Kept MessageSquare.
-import { MessageSquare } from 'lucide-react';
+// --- Removed MessageSquare import ---
+// import { MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // --- Mock Data (Unchanged) ---
@@ -48,17 +48,9 @@ function TaskCard({ task, onUpdateStatus, availableStatuses }) {
 
 // --- Refactored Dashboard Component ---
 export default function TeamMemberDashboardRefactored() {
-  // --- Removed darkMode state ---
-  // const [darkMode, setDarkMode] = useState(false);
-
-  // Keep state for tasks and tabs
   const [tasks, setTasks] = useState(mockTasks);
   const [selectedTab, setSelectedTab] = useState(TASK_STATUSES[0]);
 
-  // --- Removed toggleDarkMode function ---
-  // const toggleDarkMode = () => setDarkMode(!darkMode);
-
-  // Task update logic remains the same
   const updateTaskStatus = (id, newStatus) => {
     setTasks(prevTasks =>
       prevTasks.map(task =>
@@ -67,21 +59,11 @@ export default function TeamMemberDashboardRefactored() {
     );
   };
 
-  // --- Removed Dark mode useEffect ---
-  // useEffect(() => {
-  //  document.documentElement.classList.toggle('dark', darkMode);
-  // }, [darkMode]);
-
-  // Keep other useEffects if needed, otherwise remove useEffect import if unused
-
   return (
-    // The component still benefits from dark mode styles applied globally
     <div className="min-h-screen px-4 sm:px-6 py-8 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
-        {/* Header - Removed Dark Mode Toggle Section */}
         <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
           <h1 className="text-2xl font-bold">Team Member Dashboard</h1>
-          {/* Dark Mode Toggle UI removed from here */}
         </div>
 
         {/* Task Tabs (Unchanged) */}
@@ -125,15 +107,9 @@ export default function TeamMemberDashboardRefactored() {
           ))}
         </Tabs>
 
-        {/* Project Chat Placeholder (Unchanged) */}
-        <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-            <MessageSquare className="w-5 h-5" /> Project Chat (coming soon)
-          </h2>
-          <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-sm text-gray-600 dark:text-gray-400">
-            Real-time chat and file sharing features will be integrated here.
-          </div>
-        </div>
+        {/* --- Removed Project Chat Placeholder --- */}
+        {/* <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700"> ... </div> */}
+
       </div>
     </div>
   );
