@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'; // Kept useState, useEffect for tasks/tabs
+import React, { useState } from 'react'; // Removed useEffect as it's not needed here
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-// Removed Switch import
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-// --- Removed MessageSquare import ---
-// import { MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Navbar_Member from './Navbar_Member'; // Import Navbar_Member instead of Navbar_All
 
 // --- Mock Data (Unchanged) ---
 const mockTasks = [
@@ -46,8 +44,8 @@ function TaskCard({ task, onUpdateStatus, availableStatuses }) {
   );
 }
 
-// --- Refactored Dashboard Component ---
-export default function TeamMemberDashboardRefactored() {
+// --- Refactored Dashboard Component with Navbar_Member ---
+export default function ManagerDashboard() {
   const [tasks, setTasks] = useState(mockTasks);
   const [selectedTab, setSelectedTab] = useState(TASK_STATUSES[0]);
 
@@ -60,57 +58,56 @@ export default function TeamMemberDashboardRefactored() {
   };
 
   return (
-    <div className="min-h-screen px-4 sm:px-6 py-8 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-          <h1 className="text-2xl font-bold">Team Member Dashboard</h1>
-        </div>
+    <>
+      <Navbar_Member /> {/* Use Navbar_Member instead of Navbar_All */}
+      <div className="min-h-screen px-4 sm:px-6 py-8 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+            <h1 className="text-2xl font-bold">Manager Dashboard</h1>
+          </div>
 
-        {/* Task Tabs (Unchanged) */}
-        <Tabs value={selectedTab} onValueChange={setSelectedTab} className="w-full">
-          <TabsList className="mb-4 grid grid-cols-3 w-full sm:w-auto sm:inline-flex">
+          {/* Task Tabs (Unchanged) */}
+          <Tabs value={selectedTab} onValueChange={setSelectedTab} className="w-full">
+            <TabsList className="mb-4 grid grid-cols-3 w-full sm:w-auto sm:inline-flex">
+              {TASK_STATUSES.map(status => (
+                <TabsTrigger key={status} value={status} className="data-[state=active]:shadow-sm">
+                  {status}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+
             {TASK_STATUSES.map(status => (
-              <TabsTrigger key={status} value={status} className="data-[state=active]:shadow-sm">
-                {status}
-              </TabsTrigger>
+              <TabsContent key={status} value={status}>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {tasks
+                    .filter(task => task.status === status)
+                    .map(task => (
+                      <motion.div
+                        key={task.id}
+                        layout
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <TaskCard
+                          task={task}
+                          onUpdateStatus={updateTaskStatus}
+                          availableStatuses={TASK_STATUSES}
+                        />
+                      </motion.div>
+                    ))}
+                  {tasks.filter(task => task.status === status).length === 0 && (
+                      <p className="text-gray-500 dark:text-gray-400 col-span-full text-center py-4">
+                          No tasks in '{status}'.
+                      </p>
+                  )}
+                </div>
+              </TabsContent>
             ))}
-          </TabsList>
-
-          {TASK_STATUSES.map(status => (
-            <TabsContent key={status} value={status}>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {tasks
-                  .filter(task => task.status === status)
-                  .map(task => (
-                    <motion.div
-                      key={task.id}
-                      layout
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <TaskCard
-                        task={task}
-                        onUpdateStatus={updateTaskStatus}
-                        availableStatuses={TASK_STATUSES}
-                      />
-                    </motion.div>
-                  ))}
-                {tasks.filter(task => task.status === status).length === 0 && (
-                    <p className="text-gray-500 dark:text-gray-400 col-span-full text-center py-4">
-                        No tasks in '{status}'.
-                    </p>
-                )}
-              </div>
-            </TabsContent>
-          ))}
-        </Tabs>
-
-        {/* --- Removed Project Chat Placeholder --- */}
-        {/* <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700"> ... </div> */}
-
+          </Tabs>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
