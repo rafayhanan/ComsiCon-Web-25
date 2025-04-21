@@ -2,7 +2,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 function AboutUs() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 px-6 py-8">
+    <section className="min-h-screen flex items-center justify-center bg-blue-50 px-6 py-8">
       <div className="max-w-4xl text-center space-y-6">
         <h2 className="text-4xl font-extrabold text-indigo-600 mt-0">About Us</h2>
         <Card className="w-full max-w-3xl mx-auto shadow-2xl rounded-3xl p-6">

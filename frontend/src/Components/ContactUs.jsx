@@ -2,7 +2,7 @@
 
 function ContactUs() {
   return (
-    <footer className="bg-gradient-to-br from-blue-50 to-indigo-100 px-6 py-16 text-gray-800">
+    <footer className="bg-blue-50 px-6 py-16 text-gray-800">
       {/* Heading */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-extrabold text-indigo-700">Contact Us</h2>
