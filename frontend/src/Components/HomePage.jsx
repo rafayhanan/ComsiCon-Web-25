@@ -161,7 +161,7 @@ function HomePage({ onLogin, isAuthenticated }) {
           {/* Left Side - Image and Welcome */}
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-4 mt-10"> {/* Added dark mode text */}
-              Welcome to, <span className="text-blue-600 dark:text-blue-400">Team<i className='text-blue-600/50 dark:text-sky-400/50'>UP</i></span> {/* Adjusted TeamUP styling */}
+              Welcome to, <h1 className="text-blue-600 dark:text-blue-400">Team<i className='text-blue-600/50 dark:text-sky-400/50'>UP</i></h1> {/* Adjusted TeamUP styling */}
             </h1>
             <div className="w-full max-w-lg h-[400px] overflow-hidden rounded-2xl shadow-xl mx-auto lg:mx-0 mt-3">
               <img
