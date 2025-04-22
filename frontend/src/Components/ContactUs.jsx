@@ -5,7 +5,7 @@ function ContactUs() {
     <footer className="bg-blue-50 px-6 py-16 text-gray-800">
       {/* Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-indigo-700">Contact Us</h2>
+        <h2 className="text-4xl font-extrabold text-blue-900">Contact Us</h2>
       </div>
 
       {/* Three-column layout */}
@@ -39,7 +39,7 @@ function ContactUs() {
             />
             <button 
               type="submit" 
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition"
+              className="bg-blue-900 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition"
             >
               Subscribe
             </button>

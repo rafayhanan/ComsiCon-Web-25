@@ -285,7 +285,6 @@ function LoginSignup({ onLogin }) {
               )}
             </button>
           </div>
-        </form>
 
         <div className="mt-6 text-center text-sm">
           {action === 'Sign Up' ? (

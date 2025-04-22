@@ -41,20 +41,16 @@ function Navbar_All({ isAuthenticated, onLogout }) {
   };
 
   return (
-    // Added conditional dark mode classes
-    <nav className={`bg-white shadow-md ${isDark ? 'dark:bg-gray-800' : ''}`}>
+    <nav className="bg-blue-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            {/* Added dark mode text colors */}
-            <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">Team<i className='text-blue-600/50 dark:text-sky-400/50'>UP</i></span>
+            <span className="text-2xl font-bold text-white">Team<i className='text-blue-50/20 dark:text-sky-400/50'>UP</i></span>
           </div>
-
+          
           <ul className="flex items-center space-x-1 md:space-x-4">
-            {/* Added dark mode text colors */}
             <li className="group">
-              {/* Use Link for client-side navigation */}
-              <Link to="/" className="flex items-center px-3 py-2 text-sm font-medium text-blue-600 rounded-md hover:text-indigo-800 dark:text-blue-400 dark:hover:text-indigo-600">
+              <Link to="/" className="flex items-center px-3 py-2 text-sm font-medium text-white rounded-md hover:text-indigo-800">
                 {/* Home icon */}
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -63,11 +59,8 @@ function Navbar_All({ isAuthenticated, onLogout }) {
               </Link>
             </li>
 
-
-            {/* Added dark mode text colors */}
             <li className="group">
-               {/* Use Link for client-side navigation */}
-              <Link to="/about" className="flex items-center px-3 py-2 text-sm font-medium text-blue-600 rounded-md hover:text-indigo-800 dark:text-blue-400 dark:hover:text-indigo-600">
+              <Link to="/about" className="flex items-center px-3 py-2 text-sm font-medium text-white rounded-md hover:text-indigo-800">
                 {/* About icon */}
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -76,10 +69,8 @@ function Navbar_All({ isAuthenticated, onLogout }) {
               </Link>
             </li>
 
-            {/* Added dark mode text colors */}
             <li className="group">
-              {/* Use Link for client-side navigation */}
-              <Link to="/contact" className="flex items-center px-3 py-2 text-sm font-medium text-blue-600 rounded-md hover:text-indigo-800 dark:text-blue-400 dark:hover:text-indigo-600">
+              <Link to="/contact" className="flex items-center px-3 py-2 text-sm font-medium text-white rounded-md hover:text-indigo-800">
                 {/* Contact icon */}
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2a10 10 0 11-10 10 10 10 0 0110-10zm-1 14h2v2h-2zm0-6h2v4h-2z" />
@@ -93,9 +84,9 @@ function Navbar_All({ isAuthenticated, onLogout }) {
               <li className="group">
                 <button
                   onClick={handleLogout}
-                  className="flex items-center px-3 py-2 text-sm font-medium text-red-600 rounded-md hover:text-red-800 dark:text-red-400 dark:hover:text-red-600 focus:outline-none"
+                  className="flex items-center px-3 py-2 text-sm font-medium text-white rounded-md hover:text-indigo-800 focus:outline-none"
                 >
-                  {/* Logout icon (optional) */}
+                  {/* Logout icon */}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                   </svg>
@@ -104,18 +95,15 @@ function Navbar_All({ isAuthenticated, onLogout }) {
               </li>
             ) : (
               <li className="group">
-                 {/* Use Link for client-side navigation */}
-                 {/* Changed the Link destination to the root path "/" */}
-                <Link to="/" className="flex items-center px-3 py-2 text-sm font-medium text-blue-600 rounded-md hover:text-indigo-800 dark:text-blue-400 dark:hover:text-indigo-600">
-                   {/* Login icon (optional) */}
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5 mr-1">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l3 3m0 0l-3 3m3-3H9" />
-                    </svg>
+                <Link to="/" className="flex items-center px-3 py-2 text-sm font-medium text-white rounded-md hover:text-indigo-800">
+                  {/* Login icon */}
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5 mr-1">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l3 3m0 0l-3 3m3-3H9" />
+                  </svg>
                   <span className="hidden md:block">Login/Signup</span>
                 </Link>
               </li>
             )}
-
 
             <li className='group'>
               <label className="inline-flex items-center cursor-pointer">
@@ -131,14 +119,13 @@ function Navbar_All({ isAuthenticated, onLogout }) {
                   }}
                 />
                 <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
-                <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">{isDark ? 'Dark Mode' : 'Light Mode'}</span>
+                <span className="ms-3 text-sm font-medium text-white dark:text-gray-300">{isDark? 'Dark Mode':'Light Mode'}</span>
               </label>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
   );
 }
 
