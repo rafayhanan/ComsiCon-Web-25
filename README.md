@@ -1,6 +1,6 @@
 # ComsiCon-Web-25
 
-This is our attempt at building a full-fledged project management platform, during a caffeine-fueled 6-hour coding sprint for the ComsiCon hackathon.
+This is our attempt at building a full-fledged project management platform, during a caffeine-fueled 6-hour coding sprint for the ComsiCon hackathon. While it's not a finished product, the core logic is in place and it demonstrates a great foundation for a project management platform.
 
 
 ### Features Tackled
