@@ -11,4 +11,4 @@ In this whirlwind of development, we focused on building:
 - Project & Workspace Management: The ability to create, update, and manage distinct project containers.
 - Team Invitation System: Logic for inviting members and managing roles within a project.
 - Task Lifecycle Management: A robust system for creating, assigning, and updating the status of tasks—the engine for a future Kanban board.
-- Contextual Commenting: A commenting system where discussions are tied directly to specific tasks, eliminating communication chaos.
+- Chat: A chatroom that uses sockets to initiate communication between team members.
