@@ -12,3 +12,17 @@ In this whirlwind of development, we focused on building:
 - Team Invitation System: Logic for inviting members and managing roles within a project.
 - Task Lifecycle Management: A robust system for creating, assigning, and updating the status of tasks—the engine for a future Kanban board.
 - Chat: A chatroom that uses sockets to initiate communication between team members.
+
+### Tech Stack
+
+#### 1. Frontend
+
+- ReactJS + Vite
+- TailwindCSS
+- ShadCN
+
+#### 2. Backend
+
+- ExpressJS/NodeJS
+- MongoDB + Mongoose
+- SocketIO
